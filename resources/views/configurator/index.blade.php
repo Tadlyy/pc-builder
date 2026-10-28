@@ -13,7 +13,7 @@
     @endphp
 
     <div class="grid gap-6 lg:grid-cols-3">
-        <div class="lg:col-span-2 space-y-8">
+        <div class="lg:col-span-2 space-y-8 animate-fade-in-up">
             <div>
                 <h1 class="text-2xl font-bold">PC Konfigurator</h1>
                 <p class="mt-1 text-sm text-gray-600">
@@ -21,7 +21,7 @@
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-gray-200 bg-white p-6">
+            <div class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
                 <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Aktuelle Auswahl</h2>
 
                 @if ($selected->isEmpty())
@@ -108,7 +108,7 @@
         </div>
 
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
-            <div class="rounded-2xl border border-gray-200 bg-white p-6">
+            <div class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
                 <h2 class="font-bold">Zusammenfassung</h2>
 
                 <dl class="mt-4 space-y-2 text-sm">
@@ -176,7 +176,7 @@
             </div>
 
             @auth
-                <form method="POST" action="{{ route('builds.store') }}" class="rounded-2xl border border-gray-200 bg-white p-6">
+                <form method="POST" action="{{ route('builds.store') }}" class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
                     @csrf
                     <label for="title" class="text-sm font-medium text-gray-700">Build speichern</label>
                     <input id="title" type="text" name="title" required
@@ -184,12 +184,12 @@
                         value="{{ old('title') }}"
                         class="mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none">
                     <button type="submit" {{ $selected->isEmpty() ? 'disabled' : '' }}
-                        class="mt-3 w-full rounded-lg bg-blue-500 px-4 py-2.5 font-semibold text-white hover:bg-blue-600 transition disabled:cursor-not-allowed disabled:opacity-40">
+                        class="mt-3 w-full rounded-lg bg-blue-500 px-4 py-2.5 font-semibold text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40">
                         Build speichern
                     </button>
                 </form>
             @else
-                <div class="rounded-2xl border border-gray-200 bg-white p-6 text-sm text-gray-600">
+                <div class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 text-sm text-gray-600">
                     <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:text-blue-700">Melde dich an</a>, um deinen Build dauerhaft zu speichern und zu teilen.
                 </div>
             @endauth

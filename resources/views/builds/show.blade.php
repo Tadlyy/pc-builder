@@ -59,7 +59,7 @@
     </div>
 
     <div class="mt-6 grid gap-6 lg:grid-cols-3">
-        <div class="lg:col-span-2 rounded-2xl border border-gray-200 bg-white p-6">
+        <div class="lg:col-span-2 rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
             <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Komponenten</h2>
             <ul class="mt-4 divide-y divide-gray-200">
                 @foreach ($build->products as $product)
@@ -86,7 +86,7 @@
         </div>
 
         <aside class="space-y-6">
-            <div class="rounded-2xl border border-gray-200 bg-white p-6">
+            <div class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6">
                 <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Netzteil-Last</h2>
                 <p class="mt-3 text-sm text-gray-700">
                     {{ $wattageUsed }} W verbraucht

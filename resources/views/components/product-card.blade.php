@@ -42,7 +42,7 @@
     }
 @endphp
 
-<div class="flex flex-col rounded-2xl border {{ $isSelected ? 'border-blue-500 bg-blue-100/30' : 'border-gray-200 bg-white' }} p-5 transition hover:border-gray-400">
+<div class="flex flex-col rounded-2xl border {{ $isSelected ? 'border-blue-500 bg-blue-100/30' : 'border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)]' }} p-5 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1">
     <div class="flex items-start justify-between gap-3">
         <div>
             <p class="text-xs font-medium uppercase tracking-wider text-blue-600">{{ $product->category->name }}</p>

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mx-auto max-w-md">
-        <div class="rounded-2xl border border-gray-200 bg-white p-8">
+        <div class="rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8">
             <h1 class="text-2xl font-bold">Anmelden</h1>
             <p class="mt-1 text-sm text-gray-600">Logge dich ein, um deine Builds zu speichern.</p>
 
@@ -37,7 +37,7 @@
                 </label>
 
                 <button type="submit"
-                    class="w-full rounded-lg bg-blue-500 px-4 py-2.5 font-semibold text-white hover:bg-blue-600 transition">
+                    class="w-full rounded-lg bg-blue-500 px-4 py-2.5 font-semibold text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95">
                     Anmelden
                 </button>
             </form>
