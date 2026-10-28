@@ -4,10 +4,10 @@
 
 @section('content')
     <h1 class="text-2xl font-bold">Öffentliche Builds entdecken</h1>
-    <p class="mt-1 text-sm text-slate-400">Von der Community erstellte PC-Zusammenstellungen.</p>
+    <p class="mt-1 text-sm text-gray-600">Von der Community erstellte PC-Zusammenstellungen.</p>
 
     @if ($builds->isEmpty())
-        <div class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-center text-sm text-slate-400">
+        <div class="mt-8 rounded-2xl border border-gray-200 bg-white p-8 text-center text-sm text-gray-600">
             Noch keine öffentlichen Builds. Erstelle deinen eigenen!
         </div>
     @else
