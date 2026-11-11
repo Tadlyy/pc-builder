@@ -1,6 +1,6 @@
 @props(['build'])
 
-<div class="flex flex-col rounded-2xl border border-gray-200 bg-white p-5">
+<div class="flex flex-col rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1">
     <div class="flex items-start justify-between gap-3">
         <div>
             <h3 class="font-semibold">{{ $build->title }}</h3>

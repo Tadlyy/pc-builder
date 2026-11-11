@@ -7,7 +7,7 @@
     <p class="mt-1 text-sm text-gray-600">Von der Community erstellte PC-Zusammenstellungen.</p>
 
     @if ($builds->isEmpty())
-        <div class="mt-8 rounded-2xl border border-gray-200 bg-white p-8 text-center text-sm text-gray-600">
+        <div class="mt-8 rounded-2xl border border-black/5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 text-center text-sm text-gray-600">
             Noch keine öffentlichen Builds. Erstelle deinen eigenen!
         </div>
     @else

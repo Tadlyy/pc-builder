@@ -30,7 +30,7 @@
                         </form>
                     @else
                         <a href="{{ route('login') }}" class="text-gray-700 hover:text-blue-600 transition">Anmelden</a>
-                        <a href="{{ route('register') }}" class="rounded-lg bg-blue-500 px-3 py-1.5 font-medium text-white hover:bg-blue-600 transition">Registrieren</a>
+                        <a href="{{ route('register') }}" class="rounded-lg bg-blue-500 px-3 py-1.5 font-medium text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-95">Registrieren</a>
                     @endauth
                 </div>
             </div>
