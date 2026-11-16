@@ -3,10 +3,13 @@
 namespace App\Filament\Resources\Products\Tables;
 
 use App\Models\Product;
+use App\Services\DigitecSyncService;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -47,6 +50,35 @@ class ProductsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                Action::make('syncDigitec')
+                    ->label('Mit Digitec abgleichen')
+                    ->icon('heroicon-o-arrow-path')
+                    ->color('warning')
+                    ->requiresConfirmation()
+                    ->modalHeading('Produkt mit Digitec abgleichen')
+                    ->modalDescription('Das Produkt wird mit Digitec abgeglichen. Falls es dort nicht existiert, wird es gelöscht.')
+                    ->action(function (Product $record): void {
+                        $service = app(DigitecSyncService::class);
+                        $result = $service->syncProduct($record);
+
+                        match ($result['status']) {
+                            'updated' => Notification::make()
+                                ->title('Produkt aktualisiert')
+                                ->body("Preis: CHF {$result['new_price']}")
+                                ->success()
+                                ->send(),
+                            'deleted' => Notification::make()
+                                ->title('Produkt gelöscht')
+                                ->body("{$result['product_name']} existiert nicht auf Digitec.")
+                                ->warning()
+                                ->send(),
+                            default => Notification::make()
+                                ->title('Fehler beim Abgleich')
+                                ->body($result['message'])
+                                ->danger()
+                                ->send(),
+                        };
+                    }),
                 DeleteAction::make(),
             ])
             ->toolbarActions([
